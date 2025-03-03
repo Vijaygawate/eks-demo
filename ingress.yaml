@@ -5,13 +5,28 @@ metadata:
 spec:
    ingressClassName: nginx
    rules:
-   - host: "www.balatech.tk"
+   - host: "www.demo.com"
      http:
        paths:
-       - path: "/"
+       - path: "/wear"
          pathType: Prefix
          backend:
            service:
-            name: websvc
+            name: wear-service
             port:
-             number: 80
+             number: 8080
+       - path: "/watch"
+         pathType: Prefix
+         backend:
+           service:
+            name: video-service
+            port:
+             number: 8080
+       - path: "/eat"
+         pathType: Prefix
+         backend:
+           service:
+            name: food-service
+            port:
+             number: 8080
+        
