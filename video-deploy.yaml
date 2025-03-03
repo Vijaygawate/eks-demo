@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-video
+  namespace: app-space
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-video
+  template:
+    metadata:
+      labels:
+        app: webapp-video
+    spec:
+      containers:
+      - image: kodekloud/ecommerce:video
+        name: video-webapp
+        ports:
+        - containerPort: 8080
+          protocol: TCP
